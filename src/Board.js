@@ -6,6 +6,7 @@ export default class Board extends React.Component{
     super()
 
     this.state ={
+      winningCells: [],
       winMsg: false,
       turn: 1,
       board: [
@@ -40,21 +41,45 @@ export default class Board extends React.Component{
 
     console.log(positionMap[id])
     console.log(boardCopy)
-    this.setState({ board: boardCopy } , () => this.calculateWinForOs() )
+    this.setState({ board: boardCopy } , () => {
+      this.calculateWin("O")
+      this.calculateWin("X")
+    })
   }
 
-  calculateWinForOs(){
+  calculateWin(letter){
     let board = this.state.board
-    if (board[0][0] === " O " && board[0][1] === " O " && board[0][2] === " O "){
-      console.log("O WINS!!")
-      this.setState({ winMsg: "O wins!" })
+    if (board[0][0] === ` ${letter} ` && board[0][1] === ` ${letter} ` && board[0][2] === ` ${letter} `){
+      let cells = ['1', '2', '3']
+      this.setState({ winMsg: `${letter} wins!`, winningCells: cells })
+    }else if (board[1][0] === ` ${letter} ` && board[1][1] === ` ${letter} ` && board[1][2] === ` ${letter} `){
+      let cells = ['4', '5', '6']
+      this.setState({ winMsg: `${letter} wins!`, winningCells: cells })
+    }else if (board[2][0] === ` ${letter} ` && board[2][1] === ` ${letter} ` && board[2][2] === ` ${letter} `){
+      let cells = ['7', '8', '9']
+      this.setState({ winMsg: `${letter} wins!`, winningCells: cells })
+    }else if (board[0][0] === ` ${letter} ` && board[1][0] === ` ${letter} ` && board[2][0] === ` ${letter} `){
+      let cells = ['1', '4', '7']
+      this.setState({ winMsg: `${letter} wins!`, winningCells: cells })
+    }else if (board[0][1] === ` ${letter} ` && board[1][1] === ` ${letter} ` && board[2][1] === ` ${letter} `){
+      let cells = ['2', '5', '8']
+      this.setState({ winMsg: `${letter} wins!`, winningCells: cells })
+    }else if (board[0][2] === ` ${letter} ` && board[1][2] === ` ${letter} ` && board[2][2] === ` ${letter} `){
+      let cells = ['3', '6', '9']
+      this.setState({ winMsg: `${letter} wins!`, winningCells: cells })
+    }else if (board[0][0] === ` ${letter} ` && board[1][1] === ` ${letter} ` && board[2][2] === ` ${letter} `){
+      let cells = ['1', '5', '9']
+      this.setState({ winMsg: `${letter} wins!`, winningCells: cells })
+    }else if (board[0][2] === ` ${letter} ` && board[1][1] === ` ${letter} ` && board[2][0] === ` ${letter} `){
+      let cells = ['3', '5', '7']
+      this.setState({ winMsg: `${letter} wins!`, winningCells: cells })
     }
   }
 
   render(){
     return(
       <main>
-        <h3>Turn: {this.state.turn}</h3>
+        <h3 className="title">Turn: {this.state.turn}</h3>
         <div className="row">
 
           <Cell
@@ -62,6 +87,8 @@ export default class Board extends React.Component{
             incrementTurn={this.incrementTurn.bind(this)}
             currentTurn={this.state.turn}
             adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+            winningCells={this.state.winningCells}
+            win={this.state.winMsg}
           />
 
           <Cell
@@ -69,6 +96,8 @@ export default class Board extends React.Component{
             incrementTurn={this.incrementTurn.bind(this)}
             currentTurn={this.state.turn}
             adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+            winningCells={this.state.winningCells}
+            win={this.state.winMsg}
           />
 
           <Cell
@@ -76,6 +105,8 @@ export default class Board extends React.Component{
             incrementTurn={this.incrementTurn.bind(this)}
             currentTurn={this.state.turn}
             adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+            winningCells={this.state.winningCells}
+            win={this.state.winMsg}
           />
 
         </div>
@@ -87,6 +118,8 @@ export default class Board extends React.Component{
             incrementTurn={this.incrementTurn.bind(this)}
             currentTurn={this.state.turn}
             adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+            winningCells={this.state.winningCells}
+            win={this.state.winMsg}
           />
 
           <Cell
@@ -94,6 +127,8 @@ export default class Board extends React.Component{
             incrementTurn={this.incrementTurn.bind(this)}
             currentTurn={this.state.turn}
             adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+            winningCells={this.state.winningCells}
+            win={this.state.winMsg}
           />
 
           <Cell
@@ -101,6 +136,8 @@ export default class Board extends React.Component{
             incrementTurn={this.incrementTurn.bind(this)}
             currentTurn={this.state.turn}
             adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+            winningCells={this.state.winningCells}
+            win={this.state.winMsg}
           />
         </div>
 
@@ -111,6 +148,8 @@ export default class Board extends React.Component{
             incrementTurn={this.incrementTurn.bind(this)}
             currentTurn={this.state.turn}
             adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+            winningCells={this.state.winningCells}
+            win={this.state.winMsg}
           />
 
           <Cell
@@ -118,6 +157,8 @@ export default class Board extends React.Component{
             incrementTurn={this.incrementTurn.bind(this)}
             currentTurn={this.state.turn}
             adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+            winningCells={this.state.winningCells}
+            win={this.state.winMsg}
           />
 
           <Cell
@@ -125,6 +166,8 @@ export default class Board extends React.Component{
             incrementTurn={this.incrementTurn.bind(this)}
             currentTurn={this.state.turn}
             adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+            winningCells={this.state.winningCells}
+            win={this.state.winMsg}
           />
 
         </div>

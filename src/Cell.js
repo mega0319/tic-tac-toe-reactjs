@@ -31,10 +31,9 @@ export default class Cell extends React.Component{
   }
 
   cellStatus(){
-    if (this.state.X){
-      return 'cell X'
-    }else if (this.state.O){
-      return 'cell O'
+    let winner = this.props.winningCells.includes(this.props.id)
+    if (winner){
+      return 'cell win'
     }else{
       return 'cell'
     }
@@ -51,10 +50,18 @@ export default class Cell extends React.Component{
   }
 
   render(){
-    return (
-      <div className={this.cellStatus()} onClick={() => this.handleClick()}>
-        {this.oVsX()}
-      </div>
-    )
+    if (!this.props.win){
+      return (
+        <div className={this.cellStatus()} onClick={() => this.handleClick()}>
+          {this.oVsX()}
+        </div>
+      )
+    }else{
+      return (
+        <div className={this.cellStatus()} >
+          {this.oVsX()}
+        </div>
+      )
+    }
   }
 }
