@@ -1,0 +1,35 @@
+body {
+  font-family: sans-serif;
+}
+
+.row {
+  height: 100px;
+}
+
+.cell {
+  border: 1px solid;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  position: relative;
+}
+
+.win-msg {
+  color: green;
+  font-size: 50px;
+  font-weight: bold;
+}
+/*.X {
+  background-color: yellow;
+}
+
+.O {
+  background-color: red;
+}*/
+
+.letter {
+  font-size: 100px;
+}
+span {
+  position: absolute;
+}

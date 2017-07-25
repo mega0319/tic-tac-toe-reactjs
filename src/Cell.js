@@ -1,0 +1,60 @@
+import React from 'react'
+
+export default class Cell extends React.Component{
+  constructor(){
+    super()
+
+    this.state ={
+      X: false,
+      O: false
+    }
+  }
+
+  handleClick(){
+    let roundCounter = this.props.currentTurn % 2
+    roundCounter === 1 ? this.clickedO() : this.clickedX()
+    this.props.incrementTurn()
+  }
+
+  clickedX(){
+    this.props.adjustGameBoard(this.props.id, "X")
+    this.setState({
+      X: true
+    })
+  }
+
+  clickedO(){
+    this.props.adjustGameBoard(this.props.id, "O")
+    this.setState({
+      O: true
+    })
+  }
+
+  cellStatus(){
+    if (this.state.X){
+      return 'cell X'
+    }else if (this.state.O){
+      return 'cell O'
+    }else{
+      return 'cell'
+    }
+  }
+
+  oVsX(){
+    if (this.state.X){
+      return <span className="letter">X</span>
+    }else if (this.state.O){
+      return <span className="letter">O</span>
+    }else {
+      return null
+    }
+  }
+
+  render(){
+    return (
+      <div className={this.cellStatus()} onClick={() => this.handleClick()}>
+        {this.oVsX()}
+      </div>
+    )
+  }
+}
