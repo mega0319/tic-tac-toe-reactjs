@@ -73,6 +73,10 @@ export default class Board extends React.Component{
     }
   }
 
+  handlePlayAgainClick(){
+      window.location.reload()
+  }
+
   render(){
     return(
       <main>
@@ -170,7 +174,7 @@ export default class Board extends React.Component{
 
           </div>
         </div>
-        {this.state.winMsg ? <h3 className="win-msg">{this.state.winMsg}</h3> : null}
+        {this.state.winMsg ? <div className="align"> <br/> <button className="btn" onClick={this.handlePlayAgainClick.bind(this)}> Play Again! </button><h3 className="win-msg">{this.state.winMsg}</h3> </div> : null}
       </main>
     )
   }
