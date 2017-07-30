@@ -23,6 +23,9 @@ export default class Board extends React.Component{
       turn: this.state.turn + 1,
       turnMsg: this.turnMsg()
     })
+    if (this.state.turn === 9 && this.state.winMsg === false) {
+      this.setState({ winMsg: "DRAW!"})
+    }
   }
 
   turnMsg(){
