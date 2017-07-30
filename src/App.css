@@ -8,9 +8,17 @@ main {
   height: 500px;
 }
 
+.App {
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
 .row {
-  margin: 0 50px 0 auto;
   height: 100px;
+}
+
+.board {
+  text-align: center;
 }
 
 .cell {
@@ -27,6 +35,7 @@ main {
 }
 
 .win-msg {
+  text-align: center;
   color: green;
   font-size: 50px;
   font-weight: bold;
@@ -37,11 +46,13 @@ main {
 }
 
 .letter {
-  font-size: 80px;
+  font-size: 60px;
 }
 span {
-  text-align: center;
-  width: inherit;
+  width: 80px;
+  text-align: left;
   height: inherit;
   position: absolute;
+  left: 30px;
+  top : 15px;
 }

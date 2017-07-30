@@ -24,7 +24,6 @@ export default class Board extends React.Component{
   }
 
   adjustGameBoard(id, letter){
-    console.log(id, letter)
     let boardCopy = this.state.board.slice()
     let positionMap = {
       1: () => boardCopy[0][0] = ` ${letter} `,
@@ -39,8 +38,6 @@ export default class Board extends React.Component{
     }
     positionMap[id]()
 
-    console.log(positionMap[id])
-    console.log(boardCopy)
     this.setState({ board: boardCopy } , () => {
       this.calculateWin("O")
       this.calculateWin("X")
@@ -79,97 +76,99 @@ export default class Board extends React.Component{
   render(){
     return(
       <main>
-        <h3 className="title">Turn: {this.state.turn}</h3>
-        <div className="row">
+        <h3 className="animated bounce title">Turn: {this.state.turn}</h3>
+        <div className="board">
+          <div className="row">
 
-          <Cell
-            id="1"
-            incrementTurn={this.incrementTurn.bind(this)}
-            currentTurn={this.state.turn}
-            adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
-            winningCells={this.state.winningCells}
-            win={this.state.winMsg}
-          />
+            <Cell
+              id="1"
+              incrementTurn={this.incrementTurn.bind(this)}
+              currentTurn={this.state.turn}
+              adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+              winningCells={this.state.winningCells}
+              win={this.state.winMsg}
+            />
 
-          <Cell
-            id="2"
-            incrementTurn={this.incrementTurn.bind(this)}
-            currentTurn={this.state.turn}
-            adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
-            winningCells={this.state.winningCells}
-            win={this.state.winMsg}
-          />
+            <Cell
+              id="2"
+              incrementTurn={this.incrementTurn.bind(this)}
+              currentTurn={this.state.turn}
+              adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+              winningCells={this.state.winningCells}
+              win={this.state.winMsg}
+            />
 
-          <Cell
-            id="3"
-            incrementTurn={this.incrementTurn.bind(this)}
-            currentTurn={this.state.turn}
-            adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
-            winningCells={this.state.winningCells}
-            win={this.state.winMsg}
-          />
+            <Cell
+              id="3"
+              incrementTurn={this.incrementTurn.bind(this)}
+              currentTurn={this.state.turn}
+              adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+              winningCells={this.state.winningCells}
+              win={this.state.winMsg}
+            />
 
-        </div>
+          </div>
 
-        <div className="row">
+          <div className="row">
 
-          <Cell
-            id="4"
-            incrementTurn={this.incrementTurn.bind(this)}
-            currentTurn={this.state.turn}
-            adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
-            winningCells={this.state.winningCells}
-            win={this.state.winMsg}
-          />
+            <Cell
+              id="4"
+              incrementTurn={this.incrementTurn.bind(this)}
+              currentTurn={this.state.turn}
+              adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+              winningCells={this.state.winningCells}
+              win={this.state.winMsg}
+            />
 
-          <Cell
-            id="5"
-            incrementTurn={this.incrementTurn.bind(this)}
-            currentTurn={this.state.turn}
-            adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
-            winningCells={this.state.winningCells}
-            win={this.state.winMsg}
-          />
+            <Cell
+              id="5"
+              incrementTurn={this.incrementTurn.bind(this)}
+              currentTurn={this.state.turn}
+              adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+              winningCells={this.state.winningCells}
+              win={this.state.winMsg}
+            />
 
-          <Cell
-            id="6"
-            incrementTurn={this.incrementTurn.bind(this)}
-            currentTurn={this.state.turn}
-            adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
-            winningCells={this.state.winningCells}
-            win={this.state.winMsg}
-          />
-        </div>
+            <Cell
+              id="6"
+              incrementTurn={this.incrementTurn.bind(this)}
+              currentTurn={this.state.turn}
+              adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+              winningCells={this.state.winningCells}
+              win={this.state.winMsg}
+            />
+          </div>
 
-        <div className="row">
+          <div className="row">
 
-          <Cell
-            id="7"
-            incrementTurn={this.incrementTurn.bind(this)}
-            currentTurn={this.state.turn}
-            adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
-            winningCells={this.state.winningCells}
-            win={this.state.winMsg}
-          />
+            <Cell
+              id="7"
+              incrementTurn={this.incrementTurn.bind(this)}
+              currentTurn={this.state.turn}
+              adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+              winningCells={this.state.winningCells}
+              win={this.state.winMsg}
+            />
 
-          <Cell
-            id="8"
-            incrementTurn={this.incrementTurn.bind(this)}
-            currentTurn={this.state.turn}
-            adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
-            winningCells={this.state.winningCells}
-            win={this.state.winMsg}
-          />
+            <Cell
+              id="8"
+              incrementTurn={this.incrementTurn.bind(this)}
+              currentTurn={this.state.turn}
+              adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+              winningCells={this.state.winningCells}
+              win={this.state.winMsg}
+            />
 
-          <Cell
-            id="9"
-            incrementTurn={this.incrementTurn.bind(this)}
-            currentTurn={this.state.turn}
-            adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
-            winningCells={this.state.winningCells}
-            win={this.state.winMsg}
-          />
+            <Cell
+              id="9"
+              incrementTurn={this.incrementTurn.bind(this)}
+              currentTurn={this.state.turn}
+              adjustGameBoard={(id, letter) => this.adjustGameBoard(id, letter)}
+              winningCells={this.state.winningCells}
+              win={this.state.winMsg}
+            />
 
+          </div>
         </div>
         {this.state.winMsg ? <h3 className="win-msg">{this.state.winMsg}</h3> : null}
       </main>

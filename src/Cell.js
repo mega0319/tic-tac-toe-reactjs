@@ -6,7 +6,8 @@ export default class Cell extends React.Component{
 
     this.state ={
       X: false,
-      O: false
+      O: false,
+      clicked: false
     }
   }
 
@@ -19,14 +20,16 @@ export default class Cell extends React.Component{
   clickedX(){
     this.props.adjustGameBoard(this.props.id, "X")
     this.setState({
-      X: true
+      X: true,
+      clicked: true
     })
   }
 
   clickedO(){
     this.props.adjustGameBoard(this.props.id, "O")
     this.setState({
-      O: true
+      O: true,
+      clicked: true
     })
   }
 
@@ -41,9 +44,9 @@ export default class Cell extends React.Component{
 
   oVsX(){
     if (this.state.X){
-      return <span className="letter">X</span>
+      return <span className="animated fadeIn letter">X</span>
     }else if (this.state.O){
-      return <span className="letter">O</span>
+      return <span className="animated fadeIn letter">O</span>
     }else {
       return null
     }
