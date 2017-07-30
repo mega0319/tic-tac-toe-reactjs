@@ -55,7 +55,7 @@ export default class Cell extends React.Component{
   render(){
     if (!this.props.win && !this.state.clicked){
       return (
-        <div className={this.cellStatus()} onClick={() => this.handleClick()}>
+        <div className={this.cellStatus()} onClick={() => this.handleClick()} >
           {this.oVsX()}
         </div>
       )

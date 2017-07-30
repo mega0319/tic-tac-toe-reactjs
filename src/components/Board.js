@@ -9,6 +9,7 @@ export default class Board extends React.Component{
       winningCells: [],
       winMsg: false,
       turn: 1,
+      turnMsg: "O's turn",
       board: [
         ['   ', '   ', '   '],
         ['   ', '   ', '   '],
@@ -19,8 +20,14 @@ export default class Board extends React.Component{
 
   incrementTurn(){
     this.setState({
-      turn: this.state.turn + 1
+      turn: this.state.turn + 1,
+      turnMsg: this.turnMsg()
     })
+  }
+
+  turnMsg(){
+    let roundCounter = this.state.turn % 2
+    return roundCounter === 1 ? "X's turn" : "O's turn"
   }
 
   adjustGameBoard(id, letter){
@@ -81,6 +88,7 @@ export default class Board extends React.Component{
     return(
       <main>
         <h3 className="animated bounce title">Turn: {this.state.turn}</h3>
+        <h4 className="title"> {this.state.turnMsg} </h4>
         <div className="board">
           <div className="row">
 
@@ -174,7 +182,7 @@ export default class Board extends React.Component{
 
           </div>
         </div>
-        {this.state.winMsg ? <div className="align"> <br/> <button className="btn" onClick={this.handlePlayAgainClick.bind(this)}> Play Again! </button><h3 className="win-msg">{this.state.winMsg}</h3> </div> : null}
+        {this.state.winMsg ? <div className="align"> <br/> <button className="animated slideInLeft btn" onClick={this.handlePlayAgainClick.bind(this)}> Play Again! </button><h3 className="win-msg">{this.state.winMsg}</h3> </div> : null}
       </main>
     )
   }
