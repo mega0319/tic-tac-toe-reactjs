@@ -46,6 +46,11 @@ main {
   font-weight: bold;
 }
 
+.bubble{
+  text-shadow: 2px 2px 2px #000;
+  color:white;
+}
+
 .btn {
   border: none;
   background: blue;
