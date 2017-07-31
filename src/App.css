@@ -41,7 +41,7 @@ main {
 
 .win-msg {
   text-align: center;
-  color: green;
+  color: #32CD32;
   font-size: 50px;
   font-weight: bold;
 }
@@ -55,6 +55,7 @@ main {
   margin-bottom: 0;
   border-radius: 10px;
   cursor: pointer;
+  box-shadow: 3px 3px 3px #000000;
 }
 
 .win {
