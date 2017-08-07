@@ -31,6 +31,10 @@ main {
   /*box-shadow: 3px 2px 1px black;*/
 }
 
+.cell:hover {
+  background-color: aqua;
+}
+
 .title {
   text-align: center;
 }
@@ -70,6 +74,7 @@ main {
 .letter {
   font-size: 60px;
 }
+
 span {
   width: 80px;
   text-align: left;
